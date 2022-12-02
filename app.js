@@ -1,6 +1,6 @@
 let nodeapp = require('express')();
 let http = require('http').createServer(nodeapp);
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 let io = require('socket.io')(http);
 
 let userCount = 0;
