@@ -1,6 +1,30 @@
 {
-  "dependencies": {
-    "express": "^4.18.2",
-    "socket.io": "^4.5.4"
-  }
+    "dependencies": {
+        "express": "^4.18.2",
+        "socket.io": "^4.5.4"
+    },
+    "name": "chat",
+    "version": "1.0.0",
+    "description": "Node app chat",
+    "main": "app.js",
+    "devDependencies": {},
+    "scripts": {
+        "test": "node app"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/victor-kindrat/node-chat.git"
+    },
+    "keywords": [
+        "chat"
+    ],
+    "author": "Victor Kindrat",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/victor-kindrat/node-chat/issues"
+    },
+    "homepage": "https://github.com/victor-kindrat/node-chat#readme",
+    "engines": {
+        "node": "18.x"
+    }
 }
