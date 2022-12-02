@@ -1,89 +1,121 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.14.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.14.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js" integrity="sha512-YeeA/Qxn5hYdkukScTCNNOhTrv1C2RubAGButJ1rmgQwZf/HdRaCGl+JAVkqsqaNRaYNHdheiuKKuPf9mDcqKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .form {
+            width: 100%;
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 15px #00000050);
+        }
+        
+        .form input {
+            width: 80%;
+            height: 50px;
+            border: none;
+            outline: none;
+            border-radius: 10px 0 0 10px;
+            padding: 15px 10px;
+            font-family: "montserrat", sans-serif;
+        }
+        
+        .btn {
+            width: 10%;
+            height: 50px;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            background: #121212;
+            color: #ffffff;
+            cursor: pointer;
+            font-family: "montserrat", sans-serif;
+        }
+        
+        .messageContainer {
+            height: calc(100vh - 100px);
+            width: 100%;
+            padding: 50px 100px;
+            display: flex;
+            flex-direction: column;
+            font-family: "montserrat", sans-serif;
+            overflow-y: auto;
+        }
+        
+        .message {
+            padding: 15px 10px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px 0;
+            box-shadow: 0 0 15px #12121220;
+            border-radius: 10px;
+        }
+        
+        .onlineBadge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            box-shadow: 0 0 5px #00000050;
+            border-radius: 5px;
+            padding: 5px 10px;
+            background: rgb(16, 154, 16);
+            color: #ffffff;
+            font-family: "montserrat", sans-serif;
+            font-weight: 700;
+        }
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="onlineBadge">
+            <span class="onlineBadge__text">Online: </span>
+            <span class="onlineBadge__value">0</span>
+        </div>
+        <div class="messageContainer">
+
+        </div>
+        <form id="form" class="form">
+            <input type="text" placeholder="Input your meassage" id="message_info">
+            <button class="btn">Send</button>
+        </form>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        let socket = io();
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+        $('#form').submit(function() {
+            socket.emit('chat message', $('#message_info').val())
+            $('#message_info').val('');
+            return false
+        });
+
+        socket.on('chat message', function(data) {
+            $('.messageContainer').append('<div class="message">' + data + '</div>')
+        })
+
+        socket.on('getStatus', function(data) {
+            $('.onlineBadge__value').html(data)
+        })
     </script>
-  </body>
+</body>
+
 </html>
