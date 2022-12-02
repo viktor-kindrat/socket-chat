@@ -10,7 +10,7 @@
     "description": "Node app chat",
     "main": "app.js",
     "scripts": {
-        "test": "node app"
+        "start": "node app.js"
     },
     "repository": {
         "type": "git",
