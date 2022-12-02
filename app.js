@@ -1,5 +1,5 @@
 let nodeapp = require('express')();
-let http = require('http').createServer(app);
+let http = require('http').createServer(nodeapp);
 const PORT = 3000;
 let io = require('socket.io')(http);
 
