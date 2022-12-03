@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js" integrity="sha512-YeeA/Qxn5hYdkukScTCNNOhTrv1C2RubAGButJ1rmgQwZf/HdRaCGl+JAVkqsqaNRaYNHdheiuKKuPf9mDcqKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header__logo">
+                <img data-name="Main" data-surname="Stream" data-src="preload" alt="logo" class="header__logo-img">
+            </div>
+            <div class="header__info">
+                <div class="header__chat-name">Main streem</div>
+                <div class="onlineBadge">
+                    <span class="onlineBadge__text">Online: </span>
+                    <span class="onlineBadge__value">0</span>
+                </div>
+            </div>
+        </header>
+        <div class="messages">
+
+        </div>
+        <form id="form" class="form">
+            <textarea class="form__input" placeholder="Your meassage" id="message_info"></textarea>
+            <button class="form__submit">Send</button>
+        </form>
+    </div>
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>

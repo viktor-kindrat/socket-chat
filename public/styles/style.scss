@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+ ::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background: rgba(128, 128, 128, 0.238);
+}
+
+ ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgb(108, 85, 255);
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: rgb(217, 217, 217);
+}
+
+.wrap {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(147, 207, 250) url("../images/background.svg") center center;
+    background-attachment: fixed;
+    background-size: auto 100%;
+    overflow: auto;
+    .header {
+        width: 100%;
+        height: calc(75px + 1vh);
+        background: rgb(36, 164, 255);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        box-shadow: 0 0 10px #00000050;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 25px 150px;
+        gap: 25px;
+        color: #ffffff;
+        .header__logo {
+            height: 50px;
+            width: 50px;
+            .header__logo-img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 800;
+                background: #ababab;
+                color: #121212;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+            }
+        }
+        .header__chat-name {
+            font-weight: 800;
+            font-size: 16px;
+        }
+        .onlineBadge {
+            opacity: 0.6;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+    .messages {
+        height: calc(100vh - (100px + 1vh) - (50px + 1vh));
+        width: 100%;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        position: relative;
+        top: calc(62px + 1vh);
+        .messages__item {
+            max-width: fit-content;
+            width: min(100%, 500px);
+            height: auto;
+            white-space: break-spaces;
+            overflow-wrap: break-word;
+            word-break: break-all;
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px 0;
+            border-radius: 10px 0 10px 10px;
+            background: #ffffff;
+            -webkit-border-radius: 10px 0 10px 10px;
+            -moz-border-radius: 10px 0 10px 10px;
+            -ms-border-radius: 10px 0 10px 10px;
+            -o-border-radius: 10px 0 10px 10px;
+            // &.messae
+        }
+    }
+    .form {
+        width: 100%;
+        height: calc(100px + 1vh);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        padding: calc(10px + 2vh) calc(10px + 2vw);
+        .form__input {
+            width: 90%;
+            height: 100%;
+            border: none;
+            outline: none;
+            resize: none;
+        }
+        .form__submit {
+            width: 10%;
+            height: 100%;
+            border: none;
+            background: #121212;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wrap {
+        .header {
+            padding: 25px;
+        }
+    }
+}

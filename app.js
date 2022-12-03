@@ -1,11 +1,14 @@
-let nodeapp = require('express')();
-let http = require('http').createServer(nodeapp);
+let express = require('express');
+let app = express();
+let http = require('http').createServer(app);
 const PORT = process.env.PORT || 3001;
 let io = require('socket.io')(http);
+let open = require('open')
 
 let userCount = 0;
 
-nodeapp.get('/', function(request, response) {
+app.use(express.static(__dirname + '/public'));
+app.get('/', function(request, response) {
     response.sendFile(__dirname + "/index.html")
 })
 
@@ -27,4 +30,5 @@ io.on('connection', function(socket) {
 
 http.listen(PORT, function() {
     console.log('server runnning on port ' + PORT)
+    open('http://localhost:' + PORT)
 })
