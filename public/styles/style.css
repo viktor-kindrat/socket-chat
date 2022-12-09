@@ -88,6 +88,13 @@
   font-size: 14px;
   font-weight: 500;
 }
+.wrap .aside {
+  height: 100vh;
+  width: 100px;
+  background: #041420;
+  z-index: 50;
+  position: relative;
+}
 .wrap .messages {
   height: calc(100vh - (100px + 1vh) - (50px + 1vh));
   width: calc(100% - 100px);
