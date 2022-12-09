@@ -37,24 +37,24 @@
     background-size: auto 100%;
     overflow: auto;
     .header {
-        width: 100%;
-        height: calc(75px + 1vh);
+        width: calc(100% - 100px);
+        height: 100px;
         background: rgb(36, 164, 255);
         position: fixed;
         top: 0;
-        left: 0;
         right: 0;
         z-index: 10;
         box-shadow: 0 0 10px #00000050;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        padding: 25px 150px;
+        padding: 25px 25px;
         gap: 25px;
         color: #ffffff;
         .header__logo {
             height: 50px;
             width: 50px;
+            user-select: none;
             .header__logo-img {
                 height: 100%;
                 width: 100%;
@@ -85,8 +85,9 @@
     }
     .messages {
         height: calc(100vh - (100px + 1vh) - (50px + 1vh));
-        width: 100%;
+        width: calc(100% - 100px);
         padding: 25px;
+        left: 100px;
         display: flex;
         flex-direction: column;
         overflow: auto;
@@ -115,11 +116,11 @@
         }
     }
     .form {
-        width: 100%;
+        width: calc(100% - 100px);
         height: calc(100px + 1vh);
         position: fixed;
         bottom: 0;
-        left: 0;
+        right: 0;
         display: flex;
         align-items: center;
         justify-content: center;
