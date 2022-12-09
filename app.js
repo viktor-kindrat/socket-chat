@@ -32,3 +32,5 @@ http.listen(PORT, function() {
     console.log('server runnning on port ' + PORT)
     open('http://localhost:' + PORT)
 })
+
+module.exports = app;
