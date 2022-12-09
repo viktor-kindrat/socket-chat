@@ -34,3 +34,5 @@ http.listen(PORT, function() {
 })
 
 module.exports = app;
+module.exports = io;
+module.exports = http;
