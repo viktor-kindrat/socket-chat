@@ -49,9 +49,9 @@ function replaceImagesWithPlaceholder() {
     let logoImages = document.querySelectorAll('img[data-src]');
     for (let i = 0; i < logoImages.length; i++) {
         if (logoImages[i].dataset.src === 'preload') {
-            logoImages[i].style.display = 'none';
             let placeholder = generateIconPlaceholder(logoImages[i].dataset.name, logoImages[i].dataset.surname)
-            $('.header__logo').append(`<div class="header__logo-img" style="background: ${placeholder.color}; color: ${placeholder.textColor}">${placeholder.placeholder}</div>`)
+            logoImages[i].style.display = 'none';
+            logoImages[i].parentElement.innerHTML += `<div class="header__logo-img" style="background: ${placeholder.color}; color: ${placeholder.textColor}">${placeholder.placeholder}</div>`
         } else {
             logoImages[i].src = logoImages[i].dataset.src;
         }

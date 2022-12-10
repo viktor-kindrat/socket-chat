@@ -29,13 +29,16 @@
     background: rgb(217, 217, 217);
 }
 
+// body {
+//     overflow: hidden;
+// }
 .wrap {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background: rgb(147, 207, 250) url("../images/background.svg") center center;
     background-attachment: fixed;
     background-size: auto 100%;
-    overflow: auto;
+    // overflow: hidden;
     .header {
         width: calc(100% - 100px);
         height: 100px;
@@ -91,15 +94,15 @@
         position: relative;
     }
     .messages {
-        height: calc(100vh - (100px + 1vh) - (50px + 1vh));
+        height: calc(100vh - 200px);
         width: calc(100% - 100px);
         padding: 25px;
         left: 100px;
         display: flex;
         flex-direction: column;
         overflow: auto;
-        position: relative;
-        top: calc(62px + 1vh);
+        position: absolute;
+        top: 100px;
         .messages__item {
             max-width: fit-content;
             width: min(100%, 500px);
