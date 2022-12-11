@@ -19,15 +19,21 @@ $('#register').submit(function() {
     let surname = $('#register-surname').val() || ' ';
     let username = $('#register-username').val();
     let userpassword = $('#register-password').val();
-    let user = {
-        'name': name,
-        'surname': surname,
-        'username': username,
-        'password': userpassword,
-        'key': Date.now()
+    if (name.length > 0 && username.length > 0 && userpassword.length > 0) {
+        let user = {
+            'name': name,
+            'surname': surname,
+            'username': username,
+            'password': userpassword,
+            'key': Date.now()
+        }
+        user.avatar = generateIconPlaceholder(user.name, user.surname || ' ')
+        console.log(user)
+        localStorage.setItem('currentUser', JSON.stringify(user))
+        socket.emit('new user', JSON.stringify(user))
+    } else {
+        alert('Dont lie!');
     }
-    localStorage.setItem('currentUser', JSON.stringify(user))
-    socket.emit('new user', JSON.stringify(user))
     return false
 })
 
@@ -39,7 +45,8 @@ $('#form').submit(function() {
             username: currentUser.username,
             name: currentUser.name,
             surname: currentUser.surname,
-            message: $('#message_info').val()
+            message: $('#message_info').val(),
+            avatar: currentUser.avatar
         }))
         $('#message_info').val('');
         $('#message_info').blur();
@@ -50,7 +57,7 @@ $('#form').submit(function() {
 socket.on('chat message', function(data) {
     let catchedData = JSON.parse(data);
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    let avatar = generateIconPlaceholder(catchedData.name, catchedData.surname || ' ')
+    let avatar = catchedData.avatar;
     console.log(avatar)
     if (catchedData.username === currentUser.username) {
         $('.messages').append(`<div class="messages__item" style="flex-direction: row-reverse;"><div class="message__avatar" style="background: ${avatar.color}; color: ${avatar.textColor}">${avatar.placeholder}</div><div class="message__text" style="border-radius: 10px 0 10px 10px;"><span class="message__name" style="color: ${avatar.color}">${catchedData.name} ${catchedData.surname}</span> <span class="message__message">${catchedData.message}</span></div></div>`);
@@ -69,7 +76,7 @@ socket.on('registration status', function(data) {
             localStorage.setItem('loginsatus', loginsatus)
             $('.start').fadeOut(300)
         } else {
-            alert(serverdata(`Server returned: ${serverdata.status}`))
+            alert(`Server returned: ${serverdata.status}`)
         }
     }
 })
