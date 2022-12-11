@@ -79,8 +79,8 @@ $('#form').submit(function() {
             username: currentUser.username,
             name: currentUser.name,
             surname: currentUser.surname,
-            message: $('#message_info').val(),
-            avatar: currentUser.avatar
+            avatar: currentUser.avatar,
+            message: $('#message_info').val()
         }))
         $('#message_info').val('');
         $('#message_info').blur();
