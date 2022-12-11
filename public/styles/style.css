@@ -234,6 +234,7 @@
   position: fixed;
   padding: 25px;
   display: flex;
+  gap: 25px;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -246,8 +247,13 @@
 .wrap .aside .aside__footer {
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
 }
-.wrap .aside .aside__footer .aside__settings-btn {
+.wrap .aside .aside__footer .aside__btn {
   width: 100%;
   display: flex;
   align-items: center;
@@ -256,12 +262,14 @@
   position: relative;
   cursor: pointer;
 }
-.wrap .aside .aside__footer .aside__settings-btn img {
+.wrap .aside .aside__footer .aside__btn img {
   height: 40px;
   width: 40px;
+  -o-object-fit: contain;
+     object-fit: contain;
   flex-shrink: 0;
 }
-.wrap .aside .aside__footer .aside__settings-btn .aside__settings-btn-text {
+.wrap .aside .aside__footer .aside__btn .aside__btn-text {
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
@@ -303,13 +311,14 @@
   -o-transition: 0.3s;
 }
 .wrap .aside .aside__chats {
-  height: calc(100% - 150px);
+  height: calc(100% - 200px);
   width: 100%;
   display: flex;
   row-gap: 35px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  overflow: auto;
 }
 .wrap .aside .aside__chats .aside__chat-item {
   height: 50px;
@@ -402,7 +411,7 @@
 .wrap .aside[data-burger-state=close] .aside__chats .aside__chat-item .aside__chat-avatar .header__logo-img {
   flex-shrink: 0;
 }
-.wrap .aside[data-burger-state=close] .aside__settings-btn .aside__settings-btn-text {
+.wrap .aside[data-burger-state=close] .aside__btn .aside__btn-text {
   display: block;
 }
 

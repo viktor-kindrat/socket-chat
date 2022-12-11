@@ -37,6 +37,16 @@ $('#register').submit(function() {
     return false
 })
 
+$('#aside__logout').click(function() {
+    let confirmation = confirm('Are you sure?')
+    if (confirmation) {
+        localStorage.clear();
+        window.location.reload();
+    } else {
+        alert('Canceled')
+    }
+})
+
 $('#form').submit(function() {
     if ($('#message_info').val().length > 0) {
         $('#form__emojies').fadeOut(300)
