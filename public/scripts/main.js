@@ -16,7 +16,7 @@ $('#start__answer-yes').click(function() {
 
 $('#register').submit(function() {
     let name = $('#register-name').val();
-    let surname = $('#register-surname').val() || '';
+    let surname = $('#register-surname').val() || ' ';
     let username = $('#register-username').val();
     let userpassword = $('#register-password').val();
     let user = {
@@ -49,8 +49,14 @@ $('#form').submit(function() {
 
 socket.on('chat message', function(data) {
     let catchedData = JSON.parse(data);
-    let avatar = generateIconPlaceholder(catchedData.name, catchedData.surname)
-    $('.messages').append(`<div class="messages__item"><div class="message__avatar" style="background: ${avatar.color}; color: ${avatar.textColor}">${avatar.placeholder}</div><div class="message__text"><span class="message__message">${catchedData.name} ${catchedData.surname}</span> <span class="message__message">${catchedData.message}</span></div></div>`);
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    let avatar = generateIconPlaceholder(catchedData.name, catchedData.surname || ' ')
+    console.log(avatar)
+    if (catchedData.username === currentUser.username) {
+        $('.messages').append(`<div class="messages__item" style="flex-direction: row-reverse;"><div class="message__avatar" style="background: ${avatar.color}; color: ${avatar.textColor}">${avatar.placeholder}</div><div class="message__text" style="border-radius: 10px 0 10px 10px;"><span class="message__name" style="color: ${avatar.color}">${catchedData.name} ${catchedData.surname}</span> <span class="message__message">${catchedData.message}</span></div></div>`);
+    } else {
+        $('.messages').append(`<div class="messages__item"><div class="message__avatar" style="background: ${avatar.color}; color: ${avatar.textColor}">${avatar.placeholder}</div><div class="message__text" style="border-radius: 0 10px 10px 10px;"><span class="message__name" style="color: ${avatar.color}">${catchedData.name} ${catchedData.surname}</span> <span class="message__message">${catchedData.message}</span></div></div>`);
+    }
     document.querySelector('.messages').scrollTop = document.querySelector('.messages').scrollHeight;
 })
 

@@ -409,26 +409,49 @@
   top: 100px;
 }
 .messages .messages__item {
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  width: min(100%, 500px);
+  width: 100%;
   height: auto;
+  margin: 10px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 25px;
+}
+.messages .messages__item .message__avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.messages .messages__item .message__text {
+  width: min(450px, 100%);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 10px 0 10px 10px;
+  background: #ffffff;
+  position: relative;
+}
+.messages .messages__item .message__text .message__name {
+  font-size: 12px;
+  font-weight: 500;
+}
+.messages .messages__item .message__text .message__message {
+  width: 100%;
   white-space: break-spaces;
   overflow-wrap: break-word;
   word-break: break-all;
-  padding: 25px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  margin: 10px 0;
-  border-radius: 10px 0 10px 10px;
-  background: #ffffff;
-  -webkit-border-radius: 10px 0 10px 10px;
-  -moz-border-radius: 10px 0 10px 10px;
-  -ms-border-radius: 10px 0 10px 10px;
-  -o-border-radius: 10px 0 10px 10px;
+  display: block;
 }
 
 .form {
