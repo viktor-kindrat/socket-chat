@@ -1,3 +1,5 @@
 /node_modules/ 
 /public/styles/style.scss 
 /public/styles/style.css.map
+/data/
+data/users.txt
