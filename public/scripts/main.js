@@ -1,10 +1,12 @@
 let socket = io();
+$('#form__emojies').fadeOut(0)
 
 $('#form').submit(function() {
     if ($('#message_info').val().length > 0) {
+        $('#form__emojies').fadeOut(300)
         socket.emit('chat message', $('#message_info').val())
         $('#message_info').val('');
-    } else {}
+    }
     return false
 });
 
@@ -14,7 +16,39 @@ socket.on('chat message', function(data) {
 })
 
 socket.on('getStatus', function(data) {
-    $('.onlineBadge__value').html(data)
+    $('.onlineBadge__value').text(data)
+})
+
+$('#form__emoji').mouseenter(function() {
+    let elStyles = window.getComputedStyle(document.querySelector('#form__emojies'))
+    $('#form__emojies').fadeIn(300)
+    $('#form__emojies').css({
+        'display': 'flex',
+        'bottom': '125px',
+        'left': (document.querySelector('#form__emoji').offsetLeft + 50) - (Number(elStyles.width.slice(0, elStyles.width.lastIndexOf('px'))) / 2) + 'px'
+    })
+    console.log(document.querySelector('#form__emoji').offsetTop)
+})
+
+$('#form__emoji').click(function() {
+    $('#form__emojies').fadeOut(300)
+})
+
+$(document).ready(function() {
+    for (moji of emoji) {
+        $('.form__emoji-container').append(`<div class="form__emoji-item">${moji}</div>`)
+    }
+    $('.form__emoji-item').click(function() {
+        $('#message_info').val($('#message_info').val() + $(this).text())
+    })
+});
+
+$('.aside__menu-btn').click(function() {
+    if (document.querySelector('.aside').dataset.burgerState === 'open') {
+        document.querySelector('.aside').dataset.burgerState = 'close'
+    } else {
+        document.querySelector('.aside').dataset.burgerState = 'open'
+    }
 })
 
 function generateIconPlaceholder(name, surname) {

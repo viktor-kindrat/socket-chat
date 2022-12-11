@@ -26,15 +26,35 @@
                 </div>
             </div>
         </header>
-        <aside class="aside">
-            <div class="aside__menu-btn">
+        <aside class="aside" data-burger-state="open">
+            <div class="aside__menu-btn" data-burger-state="open">
                 <div class="aside__menu-btn-element"></div>
                 <div class="aside__menu-btn-element"></div>
                 <div class="aside__menu-btn-element"></div>
             </div>
             <div class="aside__chats">
                 <div class="aside__chat-item">
-                    <img data-name="Main" data-surname="Stream" data-src="preload" alt="avatar" class="aside__avatar">
+                    <div class="aside__chat-avatar">
+                        <img data-name="Main" data-surname="Stream" data-src="preload" alt="avatar" class="aside__avatar">
+                    </div>
+                    <div class="aside__chat-text">
+                        <p class="aside__chat-name">Main Stream</p>
+                        <p class="aside__chat-last-message">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam vel cumque veniam eaque dolores eos sit nisi natus cupiditate id aspernatur maiores odio delectus porro eveniet atque, soluta deleniti consectetur?</p>
+                    </div>
+                </div>
+                <div class="aside__chat-item aside__add-btn" id="aside__add-btn">
+                    <div class="aside__chat-avatar">
+                        <img src="./images/add.svg" alt="add" class="aside__avatar">
+                    </div>
+                    <div class="aside__chat-text">
+                        <p class="aside__chat-name">New chat room</p>
+                    </div>
+                </div>
+            </div>
+            <div class="aside__footer">
+                <div class="aside__settings-btn">
+                    <img src="./images/settings.svg" alt="settings">
+                    <div class="aside__settings-btn-text">Settings</div>
                 </div>
             </div>
         </aside>
@@ -43,9 +63,19 @@
         </div>
         <form id="form" class="form">
             <textarea class="form__input" placeholder="Your meassage" id="message_info"></textarea>
-            <button class="form__submit">Send</button>
+            <div class="form__emoji" id="form__emojies">
+                <h2 class="form__headline">Select emoji from list:</h2>
+                <div class="form__emoji-container">
+
+                </div>
+            </div>
+            <div class="form__buttons">
+                <button type="button" class="form__buttons-item form__buttons-item_emoji" id="form__emoji"></button>
+                <button type="submit" class="form__buttons-item form__buttons-item_send" id="form__submit"></button>
+            </div>
         </form>
     </div>
+    <script src="./scripts/emoji.js" charset="utf-8"></script>
     <script src="./scripts/main.js"></script>
 </body>
 
