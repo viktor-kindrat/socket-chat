@@ -318,7 +318,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .wrap .aside .aside__chats .aside__chat-item {
   height: 50px;
