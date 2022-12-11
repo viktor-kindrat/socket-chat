@@ -51,7 +51,9 @@
         justify-content: center;
         flex-direction: column;
         background: #ffffff;
+        padding: 25px;
         .start__first {
+            width: 100%;
             display: flex; // opt
             flex-direction: column;
             align-items: center;
@@ -83,12 +85,16 @@
                 }
             }
             .start__btn-place {
+                width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 200px
+                column-gap: 200px;
+                row-gap: 25px;
+                flex-wrap: wrap;
             }
             .start__btn {
+                max-width: min(100%, 300px);
                 background: #041420;
                 color: #ffffff;
                 border-radius: 10px;
@@ -120,6 +126,7 @@
                 color: #041420;
             }
             .start__form {
+                width: 100%;
                 display: flex;
                 gap: 15px;
                 flex-direction: column;
@@ -144,6 +151,7 @@
                     display: none;
                 }
                 .start__submit {
+                    max-width: min(300, 100%);
                     background: #041420;
                     color: #ffffff;
                     border-radius: 10px;

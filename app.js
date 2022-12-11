@@ -46,6 +46,7 @@ io.on('connection', function(socket) {
             }))
             console.log('user ' + user.key + ' registered')
         }
+        console.log(users)
     })
 
     socket.on('disconnect', function() {
