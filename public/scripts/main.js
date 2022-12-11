@@ -1,18 +1,71 @@
 let socket = io();
+let loginsatus = localStorage.getItem('loginsatus') || ''
 $('#form__emojies').fadeOut(0)
+
+if (loginsatus === 'logined') {
+    $('.start').fadeOut(0)
+}
+
+$('#start__answer-yes').click(function() {
+    $('.start__first').fadeOut(150);
+    setTimeout(() => {
+        $('.start__register').fadeIn(300);
+        $('.start__register').css('display', 'flex');
+    }, 150);
+});
+
+$('#register').submit(function() {
+    let name = $('#register-name').val();
+    let surname = $('#register-surname').val() || '';
+    let username = $('#register-username').val();
+    let userpassword = $('#register-password').val();
+    let user = {
+        'name': name,
+        'surname': surname,
+        'username': username,
+        'password': userpassword,
+        'key': Date.now()
+    }
+    localStorage.setItem('currentUser', JSON.stringify(user))
+    socket.emit('new user', JSON.stringify(user))
+    return false
+})
 
 $('#form').submit(function() {
     if ($('#message_info').val().length > 0) {
         $('#form__emojies').fadeOut(300)
-        socket.emit('chat message', $('#message_info').val())
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'))
+        socket.emit('chat message', JSON.stringify({
+            username: currentUser.username,
+            name: currentUser.name,
+            surname: currentUser.surname,
+            message: $('#message_info').val()
+        }))
         $('#message_info').val('');
+        $('#message_info').blur();
     }
     return false
 });
 
 socket.on('chat message', function(data) {
-    $('.messages').append('<div class="messages__item">' + data + '</div>');
+    let catchedData = JSON.parse(data);
+    let avatar = generateIconPlaceholder(catchedData.name, catchedData.surname)
+    $('.messages').append(`<div class="messages__item"><div class="message__avatar" style="background: ${avatar.color}; color: ${avatar.textColor}">${avatar.placeholder}</div><div class="message__text"><span class="message__message">${catchedData.name} ${catchedData.surname}</span> <span class="message__message">${catchedData.message}</span></div></div>`);
     document.querySelector('.messages').scrollTop = document.querySelector('.messages').scrollHeight;
+})
+
+socket.on('registration status', function(data) {
+    let serverdata = JSON.parse(data)
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (serverdata.key === currentUser.key) {
+        if (serverdata.status === "Success") {
+            loginsatus = 'logined';
+            localStorage.setItem('loginsatus', loginsatus)
+            $('.start').fadeOut(300)
+        } else {
+            alert(serverdata(`Server returned: ${serverdata.status}`))
+        }
+    }
 })
 
 socket.on('getStatus', function(data) {

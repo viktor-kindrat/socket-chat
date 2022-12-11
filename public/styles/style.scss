@@ -38,7 +38,131 @@
     background: rgb(147, 207, 250) url("../images/background.svg") center center;
     background-attachment: fixed;
     background-size: auto 100%;
-    // overflow: hidden;
+    .start {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #ffffff;
+        .start__first {
+            display: flex; // opt
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            .start__picture img {
+                height: 150px;
+                width: 150px;
+                user-select: none;
+                object-fit: contain;
+            }
+            .start__text-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+                .start__headline {
+                    font-weight: 800;
+                    font-size: 35px;
+                    text-align: center;
+                    color: #041420;
+                }
+                .start__text {
+                    font-weight: 500;
+                    font-size: 16px;
+                    text-align: center;
+                    color: #141414;
+                }
+            }
+            .start__btn-place {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 200px
+            }
+            .start__btn {
+                background: #041420;
+                color: #ffffff;
+                border-radius: 10px;
+                padding: 20px 100px;
+                cursor: pointer;
+                border: none;
+                font-weight: 500;
+                font-size: 16px;
+                text-align: center;
+                color: #FFFFFF
+            }
+        }
+        .start__register {
+            width: 100%;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            .start__picture img {
+                height: 150px;
+                width: 150px;
+                object-fit: contain;
+            }
+            .start__headline {
+                font-weight: 800;
+                font-size: 25px;
+                text-align: center;
+                color: #041420;
+            }
+            .start__form {
+                display: flex;
+                gap: 15px;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .start__input {
+                    width: 350px;
+                    padding: 15px 25px;
+                    border-radius: 10px;
+                    border: none;
+                    outline: none;
+                    box-shadow: 0 0 10px #00000050;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    -ms-border-radius: 10px;
+                    -o-border-radius: 10px;
+                }
+                .start__status {
+                    font-size: 16px;
+                    font-weight: 300;
+                    color: #141414;
+                    display: none;
+                }
+                .start__submit {
+                    background: #041420;
+                    color: #ffffff;
+                    border-radius: 10px;
+                    padding: 20px 100px;
+                    cursor: pointer;
+                    border: none;
+                    font-weight: 500;
+                    font-size: 16px;
+                    text-align: center;
+                    color: #FFFFFF;
+                    overflow: auto;
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    -ms-border-radius: 10px;
+                    -o-border-radius: 10px;
+                }
+            }
+        }
+    }
     .header {
         width: calc(100% - 100px);
         height: 100px;
