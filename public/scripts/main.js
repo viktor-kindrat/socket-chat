@@ -14,23 +14,47 @@ $('#start__answer-yes').click(function() {
     }, 150);
 });
 
+function passwordValidate(password) {
+    let problems = [];
+    if (password.length < 8) {
+        problems.push('Password must contain more than 8 symbols!')
+    }
+    if (new RegExp(' ', 'gi').test(password)) {
+        problems.push('Password cant contain spaces')
+    }
+    if (new RegExp('qwerty', 'gi').test(password)) {
+        problems.push('Password cant contain "qwerty" word')
+    }
+    return problems
+}
+
 $('#register').submit(function() {
     let name = $('#register-name').val();
     let surname = $('#register-surname').val() || ' ';
     let username = $('#register-username').val();
     let userpassword = $('#register-password').val();
     if (name.length > 0 && username.length > 0 && userpassword.length > 0) {
-        let user = {
-            'name': name,
-            'surname': surname,
-            'username': username,
-            'password': userpassword,
-            'key': Date.now()
+        let validation = passwordValidate(userpassword);
+        if (validation.length === 0) {
+            let user = {
+                'name': name,
+                'surname': surname,
+                'username': username,
+                'password': userpassword,
+                'key': Date.now()
+            }
+            user.avatar = generateIconPlaceholder(user.name, user.surname || ' ')
+            console.log(user)
+            localStorage.setItem('currentUser', JSON.stringify(user))
+            socket.emit('new user', JSON.stringify(user))
+        } else {
+            let text = ``
+            for (item of validation) {
+                text += '- ' + item + '\n'
+            }
+            $('.start__status').html(text);
+            $('.start__status').fadeIn(300)
         }
-        user.avatar = generateIconPlaceholder(user.name, user.surname || ' ')
-        console.log(user)
-        localStorage.setItem('currentUser', JSON.stringify(user))
-        socket.emit('new user', JSON.stringify(user))
     } else {
         alert('Dont lie!');
     }

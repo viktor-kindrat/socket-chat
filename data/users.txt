@@ -1,1 +1,1 @@
-[{"name":"Victor","surname":"Kindrat","username":"vkindrat","password":"v11112005","key":1670772081583,"avatar":{"placeholder":"VK","color":"#6a2485","fullName":"Victor Kindrat","textColor":"#ffffff"}},{"name":"Victor","surname":"Kindrat","username":"ok","password":"v11112005","key":1670774475379,"avatar":{"placeholder":"VK","color":"#754ae2","fullName":"Victor Kindrat","textColor":"#ffffff"}}]
+[]
