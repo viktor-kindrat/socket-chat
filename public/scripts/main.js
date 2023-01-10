@@ -1,5 +1,6 @@
 let socket = io();
-let loginsatus = localStorage.getItem('loginsatus') || ''
+let loginsatus = localStorage.getItem('loginsatus') || '';
+let emojiesMouseEntered = false;
 $('#form__emojies').fadeOut(0)
 
 if (loginsatus === 'logined') {
@@ -132,6 +133,23 @@ $('#form__emoji').mouseenter(function() {
 
 $('#form__emoji').click(function() {
     $('#form__emojies').fadeOut(300)
+})
+
+$('#form__emojies').mouseenter(function() {
+    emojiesMouseEntered = true
+})
+$('#form__emojies').mouseleave(function() {
+    emojiesMouseEntered = false
+})
+
+$('.messages').mouseenter(function() {
+    let x = setTimeout(() => {
+        if (emojiesMouseEntered) {
+            clearTimeout(x)
+        } else {
+            $('#form__emoji').click();
+        }
+    }, 1000);
 })
 
 $(document).ready(function() {

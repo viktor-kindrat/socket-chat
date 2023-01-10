@@ -32,7 +32,7 @@
 .wrap {
     width: 100%;
     height: 100vh;
-    background: rgb(147, 207, 250) url("../images/background.svg") center center;
+    background: #D6E4E5 url("../images/background.svg") center center;
     background-attachment: fixed;
     background-size: auto 100%;
     .start {
@@ -47,7 +47,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        background: #ffffff;
+        background: #EFEFEF;
         padding: 25px;
         .start__first {
             width: 100%;
@@ -93,7 +93,7 @@
             .start__btn {
                 max-width: min(100%, 300px);
                 background: #041420;
-                color: #ffffff;
+                color: #EFEFEF;
                 border-radius: 10px;
                 padding: 20px 100px;
                 cursor: pointer;
@@ -101,7 +101,7 @@
                 font-weight: 500;
                 font-size: 16px;
                 text-align: center;
-                color: #FFFFFF
+                color: #EFEFEF
             }
         }
         .start__register {
@@ -150,7 +150,7 @@
                 .start__submit {
                     max-width: min(300, 100%);
                     background: #041420;
-                    color: #ffffff;
+                    color: #EFEFEF;
                     border-radius: 10px;
                     padding: 20px 100px;
                     cursor: pointer;
@@ -158,7 +158,7 @@
                     font-weight: 500;
                     font-size: 16px;
                     text-align: center;
-                    color: #FFFFFF;
+                    color: #EFEFEF;
                     overflow: auto;
                     -webkit-border-radius: 10px;
                     -moz-border-radius: 10px;
@@ -171,7 +171,7 @@
     .header {
         width: calc(100% - 100px);
         height: 100px;
-        background: rgb(36, 164, 255);
+        background: #205375;
         position: fixed;
         top: 0;
         right: 0;
@@ -182,7 +182,7 @@
         justify-content: flex-start;
         padding: 25px 25px;
         gap: 25px;
-        color: #ffffff;
+        color: #EFEFEF;
         .header__logo {
             height: 50px;
             width: 50px;
@@ -258,7 +258,7 @@
                     font-weight: 700;
                     font-size: 16px;
                     line-height: 20px;
-                    color: #FFFFFF;
+                    color: #EFEFEF;
                     display: none;
                 }
             }
@@ -284,7 +284,7 @@
             .aside__menu-btn-element {
                 width: 100%;
                 height: 3px;
-                background: #ffffff;
+                background: #EFEFEF;
                 border-radius: 2px;
                 transition: 0.3s;
                 -webkit-border-radius: 2px;
@@ -327,7 +327,7 @@
                         line-height: 20px;
                         display: flex;
                         align-items: center;
-                        color: #FFFFFF;
+                        color: #EFEFEF;
                     }
                     .aside__chat-last-message {
                         height: 18px;
@@ -450,7 +450,7 @@
             align-items: flex-start;
             justify-content: flex-start;
             border-radius: 10px 0 10px 10px;
-            background: #ffffff;
+            background: #EFEFEF;
             position: relative;
             .message__name {
                 font-size: 12px;
@@ -476,13 +476,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ffffff;
+    background: #EFEFEF;
     padding: 25px;
     .form__emoji {
         position: fixed;
         height: min(250px, 90%);
         width: min(350px, 90%);
-        background: #ffffff;
+        background: #EFEFEF;
         padding: 25px;
         border-radius: 10px;
         display: flex;
@@ -498,7 +498,7 @@
         .form__headline {
             font-weight: 400;
             font-size: 14px;
-            color: rgb(36, 164, 255);
+            color: #205375;
         }
         .form__emoji-container {
             display: flex;
@@ -506,6 +506,29 @@
             gap: 15px;
             font-size: 20px;
             overflow: auto;
+            .form__emoji-item {
+                cursor: pointer;
+                transition: transform 0.3s;
+                user-select: none;
+                -webkit-transition: transform 0.3s;
+                -moz-transition: transform 0.3s;
+                -ms-transition: transform 0.3s;
+                -o-transition: transform 0.3s;
+            }
+            .form__emoji-item:hover {
+                transform: translateY(-2px);
+                -webkit-transform: translateY(-2px);
+                -moz-transform: translateY(-2px);
+                -ms-transform: translateY(-2px);
+                -o-transform: translateY(-2px);
+            }
+            .form__emoji-item:active {
+                transform: scale(0.8);
+                -webkit-transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                -ms-transform: scale(0.8);
+                -o-transform: scale(0.8);
+            }
         }
     }
     .form__input {
@@ -514,6 +537,7 @@
         border: none;
         outline: none;
         resize: none;
+        background: #EFEFEF;
     }
     .form__buttons {
         width: auto;

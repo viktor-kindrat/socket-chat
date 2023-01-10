@@ -32,7 +32,7 @@
 .wrap {
   width: 100%;
   height: 100vh;
-  background: rgb(147, 207, 250) url("../images/background.svg") center center;
+  background: #D6E4E5 url("../images/background.svg") center center;
   background-attachment: fixed;
   background-size: auto 100%;
 }
@@ -48,7 +48,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: #ffffff;
+  background: #EFEFEF;
   padding: 25px;
 }
 .wrap .start .start__first {
@@ -101,7 +101,7 @@
 .wrap .start .start__first .start__btn {
   max-width: min(100%, 300px);
   background: #041420;
-  color: #ffffff;
+  color: #EFEFEF;
   border-radius: 10px;
   padding: 20px 100px;
   cursor: pointer;
@@ -109,7 +109,7 @@
   font-weight: 500;
   font-size: 16px;
   text-align: center;
-  color: #FFFFFF;
+  color: #EFEFEF;
 }
 .wrap .start .start__register {
   width: 100%;
@@ -160,7 +160,7 @@
 .wrap .start .start__register .start__form .start__submit {
   max-width: 100%;
   background: #041420;
-  color: #ffffff;
+  color: #EFEFEF;
   border-radius: 10px;
   padding: 20px 100px;
   cursor: pointer;
@@ -168,7 +168,7 @@
   font-weight: 500;
   font-size: 16px;
   text-align: center;
-  color: #FFFFFF;
+  color: #EFEFEF;
   overflow: auto;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -178,7 +178,7 @@
 .wrap .header {
   width: calc(100% - 100px);
   height: 100px;
-  background: rgb(36, 164, 255);
+  background: #205375;
   position: fixed;
   top: 0;
   right: 0;
@@ -189,7 +189,7 @@
   justify-content: flex-start;
   padding: 25px 25px;
   gap: 25px;
-  color: #ffffff;
+  color: #EFEFEF;
 }
 .wrap .header .header__logo {
   height: 50px;
@@ -273,7 +273,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  color: #FFFFFF;
+  color: #EFEFEF;
   display: none;
 }
 .wrap .aside .aside__footer::before {
@@ -298,7 +298,7 @@
 .wrap .aside .aside__menu-btn .aside__menu-btn-element {
   width: 100%;
   height: 3px;
-  background: #ffffff;
+  background: #EFEFEF;
   border-radius: 2px;
   transition: 0.3s;
   -webkit-border-radius: 2px;
@@ -343,7 +343,7 @@
   line-height: 20px;
   display: flex;
   align-items: center;
-  color: #FFFFFF;
+  color: #EFEFEF;
 }
 .wrap .aside .aside__chats .aside__chat-item .aside__chat-text .aside__chat-last-message {
   height: 18px;
@@ -458,7 +458,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   border-radius: 10px 0 10px 10px;
-  background: #ffffff;
+  background: #EFEFEF;
   position: relative;
 }
 .messages .messages__item .message__text .message__name {
@@ -482,14 +482,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
+  background: #EFEFEF;
   padding: 25px;
 }
 .form .form__emoji {
   position: fixed;
   height: min(250px, 90%);
   width: min(350px, 90%);
-  background: #ffffff;
+  background: #EFEFEF;
   padding: 25px;
   border-radius: 10px;
   display: flex;
@@ -506,7 +506,7 @@
 .form .form__emoji .form__headline {
   font-weight: 400;
   font-size: 14px;
-  color: rgb(36, 164, 255);
+  color: #205375;
 }
 .form .form__emoji .form__emoji-container {
   display: flex;
@@ -515,12 +515,39 @@
   font-size: 20px;
   overflow: auto;
 }
+.form .form__emoji .form__emoji-container .form__emoji-item {
+  cursor: pointer;
+  transition: transform 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+}
+.form .form__emoji .form__emoji-container .form__emoji-item:hover {
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+}
+.form .form__emoji .form__emoji-container .form__emoji-item:active {
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
 .form .form__input {
   width: 90%;
   height: 100%;
   border: none;
   outline: none;
   resize: none;
+  background: #EFEFEF;
 }
 .form .form__buttons {
   width: auto;
