@@ -72,7 +72,7 @@
                     font-weight: 800;
                     font-size: 35px;
                     text-align: center;
-                    color: #041420;
+                    color: #EB6440;
                 }
                 .start__text {
                     font-weight: 500;
@@ -120,13 +120,15 @@
                 font-weight: 800;
                 font-size: 25px;
                 text-align: center;
-                color: #041420;
+                color: #EB6440;
             }
             .start__form {
                 width: 100%;
                 display: flex;
+                flex-wrap: wrap;
+                padding: 0 max(20vw, 50px);
                 gap: 15px;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
                 justify-content: center;
                 .start__input {
@@ -135,7 +137,8 @@
                     border-radius: 10px;
                     border: none;
                     outline: none;
-                    box-shadow: 0 0 10px #00000050;
+                    box-shadow: 0 0 10px #00000020;
+                    background: transparent;
                     -webkit-border-radius: 10px;
                     -moz-border-radius: 10px;
                     -ms-border-radius: 10px;
@@ -498,7 +501,7 @@
         .form__headline {
             font-weight: 400;
             font-size: 14px;
-            color: #205375;
+            color: #EB6440;
         }
         .form__emoji-container {
             display: flex;

@@ -80,7 +80,7 @@
   font-weight: 800;
   font-size: 35px;
   text-align: center;
-  color: #041420;
+  color: #EB6440;
 }
 .wrap .start .start__first .start__text-group .start__text {
   font-weight: 500;
@@ -129,13 +129,15 @@
   font-weight: 800;
   font-size: 25px;
   text-align: center;
-  color: #041420;
+  color: #EB6440;
 }
 .wrap .start .start__register .start__form {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  padding: 0 max(20vw, 50px);
   gap: 15px;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -145,7 +147,8 @@
   border-radius: 10px;
   border: none;
   outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3137254902);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1254901961);
+  background: transparent;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -506,7 +509,7 @@
 .form .form__emoji .form__headline {
   font-weight: 400;
   font-size: 14px;
-  color: #205375;
+  color: #EB6440;
 }
 .form .form__emoji .form__emoji-container {
   display: flex;

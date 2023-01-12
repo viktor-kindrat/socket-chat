@@ -1,16 +1,35 @@
 let express = require('express');
+const favicon = require('serve-favicon');
 let app = express();
 let http = require('http').createServer(app);
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 let io = require('socket.io')(http);
 let open = require('open');
 let fs = require('fs')
 let users = JSON.parse(fs.readFileSync('./data/users.txt').toString('utf-8'));
+
+const path = require('path');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const authRouter = require('./database/authRouter');
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+app.use(bodyParser.json());
+
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use('/auth', authRouter);
+app.use(express.static(path.resolve(__dirname, './')));
+app.use(express.static(__dirname + '/public'));
+app.use(favicon(path.join(__dirname, 'public', "images", 'favicon.ico')))
+
 console.log(users)
 
 let userCount = 0;
 
-app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
     response.sendFile(__dirname + "/index.html")
 })
@@ -55,6 +74,17 @@ io.on('connection', function(socket) {
         io.emit('getStatus', userCount)
     })
 })
+
+const start = async() => {
+    try {
+        await mongoose.connect('mongodb+srv://root:nWtTJ3QChn2rR21c@cluster0.dgi9wkt.mongodb.net/?retryWrites=true&w=majority');
+        console.log('DB conected');
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+start();
 
 http.listen(PORT, function() {
     console.log('server runnning on port ' + PORT)
