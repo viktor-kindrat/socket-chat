@@ -11,7 +11,8 @@
     "description": "Node app chat",
     "main": "app.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "test": ""
     },
     "repository": {
         "type": "git",
