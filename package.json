@@ -82,7 +82,7 @@
     "devDependencies": {},
     "scripts": {
         "start": "node app.js",
-        "test": "node app.js"
+        "test": "yarn"
     },
     "repository": {
         "type": "git",
