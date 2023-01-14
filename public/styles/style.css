@@ -179,7 +179,7 @@
   -o-border-radius: 10px;
 }
 .wrap .header {
-  width: calc(100% - 100px);
+  width: calc(100% - 75px);
   height: 100px;
   background: #205375;
   position: fixed;
@@ -231,12 +231,13 @@
 }
 .wrap .aside {
   height: 100vh;
-  width: 100px;
+  width: 75px;
   background: #041420;
   z-index: 50;
   position: fixed;
-  padding: 25px;
+  padding: 15px;
   display: flex;
+  position: relative;
   gap: 25px;
   flex-direction: column;
   align-items: center;
@@ -260,14 +261,14 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 15px;
   position: relative;
   cursor: pointer;
 }
 .wrap .aside .aside__footer .aside__btn img {
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   -o-object-fit: contain;
      object-fit: contain;
   flex-shrink: 0;
@@ -290,17 +291,18 @@
   top: -25px;
 }
 .wrap .aside .aside__menu-btn {
-  height: 25px;
-  width: 35px;
+  height: 15px;
+  width: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  margin: 15px;
 }
 .wrap .aside .aside__menu-btn .aside__menu-btn-element {
   width: 100%;
-  height: 3px;
+  height: 2.5px;
   background: #EFEFEF;
   border-radius: 2px;
   transition: 0.3s;
@@ -314,10 +316,10 @@
   -o-transition: 0.3s;
 }
 .wrap .aside .aside__chats {
-  height: calc(100% - 200px);
+  height: calc(100% - 120px);
   width: 100%;
   display: flex;
-  row-gap: 35px;
+  row-gap: 15px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -329,7 +331,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 15px;
   cursor: pointer;
 }
@@ -363,9 +365,16 @@
   color: rgba(255, 255, 255, 0.3);
 }
 .wrap .aside .aside__chats .aside__chat-item .aside__chat-avatar {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   flex-shrink: 0;
+  transition: 0.3s;
+}
+.wrap .aside .aside__chats .aside__chat-item .aside__chat-avatar .aside__avatar {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .wrap .aside .aside__chats .aside__chat-item .aside__chat-avatar .header__logo-img {
   height: 100%;
@@ -373,7 +382,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  font-size: 10px;
   font-weight: 700;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -387,6 +398,7 @@
 }
 .wrap .aside[data-burger-state=close] {
   width: min(300px, 100%);
+  padding: 25px;
   align-items: flex-start;
 }
 .wrap .aside[data-burger-state=close] .aside__menu-btn {
@@ -409,11 +421,22 @@
   -ms-transform: rotate(-45deg) translateY(-4px);
   -o-transform: rotate(-45deg) translateY(-4px);
 }
+.wrap .aside[data-burger-state=close] .aside__footer .aside__btn {
+  justify-content: flex-start;
+}
+.wrap .aside[data-burger-state=close] .aside__chats .aside__chat-item {
+  justify-content: flex-start;
+}
 .wrap .aside[data-burger-state=close] .aside__chats .aside__chat-item .aside__chat-text {
   display: flex;
 }
+.wrap .aside[data-burger-state=close] .aside__chats .aside__chat-item .aside__chat-avatar {
+  height: 50px;
+  width: 50px;
+}
 .wrap .aside[data-burger-state=close] .aside__chats .aside__chat-item .aside__chat-avatar .header__logo-img {
   flex-shrink: 0;
+  font-size: 15px;
 }
 .wrap .aside[data-burger-state=close] .aside__btn .aside__btn-text {
   display: block;
@@ -421,9 +444,9 @@
 
 .messages {
   height: calc(100vh - 200px);
-  width: calc(100% - 100px);
+  width: calc(100% - 75px);
   padding: 25px;
-  left: 100px;
+  right: 0;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -477,7 +500,7 @@
 }
 
 .form {
-  width: calc(100% - 100px);
+  width: calc(100% - 75px);
   height: 100px;
   position: fixed;
   bottom: 0;

@@ -10,8 +10,6 @@ let users = JSON.parse(fs.readFileSync('./data/users.txt').toString('utf-8'));
 
 require('dotenv').config()
 
-console.log(process.env.DB_LOGIN)
-
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -29,8 +27,6 @@ app.use('/auth', authRouter);
 app.use(express.static(path.resolve(__dirname, './')));
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname, 'public', "images", 'favicon.ico')))
-
-// console.log(users)
 
 let userCount = 0;
 
@@ -92,5 +88,5 @@ start();
 
 http.listen(PORT, function() {
     console.log('server runnning on port ' + PORT)
-        // open('http://localhost:' + PORT)
+    open('http://localhost:' + PORT)
 })
