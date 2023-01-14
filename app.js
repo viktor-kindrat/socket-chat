@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 let express = require('express');
 const favicon = require('serve-favicon');
 let app = express();
@@ -8,7 +10,6 @@ let open = require('open');
 let fs = require('fs')
 let users = JSON.parse(fs.readFileSync('./data/users.txt').toString('utf-8'));
 
-require('dotenv').config()
 
 const path = require('path');
 const mongoose = require('mongoose');
