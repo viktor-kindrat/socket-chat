@@ -1,0 +1,55 @@
+.preloader {
+    user-select: none;
+    height: 100vh;
+    width: 100vw;
+    background: #EFF5F5;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.preloader .preloader__animation {
+    height: 150px;
+    width: 150px;
+    background: transparent url("../images/loader.gif") no-repeat center;
+    background-size: contain;
+    animation: preloader infinite 2s ease;
+    -webkit-animation: preloader infinite 2s ease;
+}
+
+@keyframes preloader {
+    0% {
+        filter: drop-shadow(0 0 0 #497174);
+        -webkit-filter: drop-shadow(0 0 0 #497174);
+        transform: scale(100%);
+        -webkit-transform: scale(100%);
+        -moz-transform: scale(100%);
+        -ms-transform: scale(100%);
+        -o-transform: scale(100%);
+    }
+    50% {
+        filter: drop-shadow(0 0 25px #49717450);
+        -webkit-filter: drop-shadow(0 0 25px #49717450);
+        transform: scale(101%);
+        -webkit-transform: scale(101%);
+        -moz-transform: scale(101%);
+        -ms-transform: scale(101%);
+        -o-transform: scale(101%);
+    }
+    100% {
+        filter: drop-shadow(0 0 0 #49717450);
+        -webkit-filter: drop-shadow(0 0 0 #49717450);
+        transform: scale(100%);
+        -webkit-transform: scale(100%);
+        -moz-transform: scale(100%);
+        -ms-transform: scale(100%);
+        -o-transform: scale(100%);
+    }
+}

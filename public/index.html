@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friendly chat</title>
+    <link rel="stylesheet" href="./styles/preloader.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js" integrity="sha512-YeeA/Qxn5hYdkukScTCNNOhTrv1C2RubAGButJ1rmgQwZf/HdRaCGl+JAVkqsqaNRaYNHdheiuKKuPf9mDcqKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="./styles/style.css">
@@ -13,6 +14,9 @@
 </head>
 
 <body>
+    <div class="preloader">
+        <div class="preloader__animation"></div>
+    </div>
     <div class="wrap">
         <div class="start">
             <div class="start__first">
@@ -36,10 +40,10 @@
                 </picture>
                 <h2 class="start__headline">Ok. Let's get to know each other <br> Let me know some information about you</h2>
                 <form class="start__form" id="register">
-                    <input class="start__input" id="register-name" type="text" placeholder="Enter your name">
-                    <input class="start__input" id="register-surname" type="text" placeholder="Enter your surname (optional)">
-                    <input class="start__input" id="register-username" type="text" placeholder="Create unique username">
-                    <input class="start__input" id="register-password" type="password" placeholder="Create password">
+                    <input class="start__input" id="register-name" type="text" placeholder="Enter your name" autocomplete="off">
+                    <input class="start__input" id="register-surname" type="text" placeholder="Enter your surname (optional)" autocomplete="off">
+                    <input class="start__input" id="register-username" type="text" placeholder="Create unique username" autocomplete="off">
+                    <input class="start__input" id="register-password" type="password" placeholder="Create password" autocomplete="off">
                     <p class="start__status">This username is avialable</p>
                     <button type="submit" class="start__submit">I filled all inputs. Let`s chat!</button>
                 </form>
@@ -110,6 +114,7 @@
             </div>
         </form>
     </div>
+    <script src="./scripts/preloader.js"></script>
     <script src="./scripts/emoji.js" charset="utf-8"></script>
     <script src="./scripts/main.js"></script>
 </body>

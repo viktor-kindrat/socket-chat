@@ -5,6 +5,7 @@ const Chat = new Schema({
     avatar: { type: String },
     description: { type: String },
     members: [{ type: Object, ref: 'User' }],
+    messages: { type: Array }
 })
 
 module.exports = model('Chat', Chat);
