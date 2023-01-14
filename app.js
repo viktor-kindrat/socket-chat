@@ -8,6 +8,10 @@ let open = require('open');
 let fs = require('fs')
 let users = JSON.parse(fs.readFileSync('./data/users.txt').toString('utf-8'));
 
+require('dotenv').config()
+
+console.log(process.env.DB_LOGIN)
+
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -26,7 +30,7 @@ app.use(express.static(path.resolve(__dirname, './')));
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname, 'public', "images", 'favicon.ico')))
 
-console.log(users)
+// console.log(users)
 
 let userCount = 0;
 
@@ -77,7 +81,7 @@ io.on('connection', function(socket) {
 
 const start = async() => {
     try {
-        await mongoose.connect('mongodb+srv://root:nWtTJ3QChn2rR21c@cluster0.dgi9wkt.mongodb.net/?retryWrites=true&w=majority');
+        await mongoose.connect(`mongodb+srv://${process.env.DB_LOGIN}@cluster1.63rnhxo.mongodb.net/?retryWrites=true&w=majority`);
         console.log('DB conected');
     } catch (e) {
         console.log(e);
@@ -88,5 +92,5 @@ start();
 
 http.listen(PORT, function() {
     console.log('server runnning on port ' + PORT)
-    open('http://localhost:' + PORT)
+        // open('http://localhost:' + PORT)
 })
