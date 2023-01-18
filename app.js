@@ -1,24 +1,25 @@
 require('dotenv').config()
 
-let express = require('express');
-const favicon = require('serve-favicon');
-let app = express();
-let http = require('http').createServer(app);
+const express = require('express');
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 const PORT = process.env.PORT || 3000;
-let io = require('socket.io')(http);
-let open = require('open');
-let fs = require('fs')
-let users = JSON.parse(fs.readFileSync('./data/users.txt').toString('utf-8'));
 
+const favicon = require('serve-favicon');
+const open = require('open');
+const fs = require('fs')
 
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRouter = require('./database/authRouter');
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
 
+const users = JSON.parse(fs.readFileSync('./data/users.txt').toString('utf-8'));
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
 
 app.use(express.urlencoded({
