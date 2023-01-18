@@ -44,7 +44,7 @@ let generateIconPlaceholder = (name, surname) => {
     }
 }
 
-function replaceImagesWithPlaceholder() {
+let replaceImagesWithPlaceholder = () => {
     let logoImages = document.querySelectorAll('img[data-src]');
     for (let i = 0; i < logoImages.length; i++) {
         if (logoImages[i].dataset.src === 'preload') {
